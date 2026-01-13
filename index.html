@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PAINEL VIP - DARK MODE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="painel">
+        <h2>⚙️ PAINEL IOS @PEDRINHOX</h2>
+
+        <div class="funcao">
+            <label for="headtrick">HEADTRICK</label>
+            <input type="checkbox" id="headtrick">
+        </div>
+        <div class="funcao">
+            <label for="norecoil">NO RECOIL</label>
+            <input type="checkbox" id="norecoil">
+        </div>
+        <div class="funcao">
+            <label for="mira">AJUSTE DE MIRA</label>
+            <input type="range" id="mira" min="30" max="120" value="60" class="slider">
+            <span class="valor-slider" id="valor-mira">60</span>
+        </div>
+        <div class="funcao">
+            <label for="desempenho">Modo ALTO DESEMPENHO</label>
+            <input type="checkbox" id="desempenho">
+        </div>
+        <div class="funcao">
+            <label for="antiban">ANTI BAN</label>
+            <input type="checkbox" id="antiban">
+        </div>
+        <div class="funcao">
+            <label for="aimbot">AIMBOT</label>
+            <input type="checkbox" id="aimbot">
+        </div>
+        <div class="funcao">
+            <label for="sensi">SENSI</label>
+            <input type="range" id="sensi" min="30" max="120" value="60" class="slider">
+            <span class="valor-slider" id="valor-sensi">60</span>
+        </div>
+        <div class="funcao">
+            <label for="bypass">BYPASS</label>
+            <input type="checkbox" id="bypass">
+        </div>
+
+        <button id="ativar">ATIVAR FUNÇÕES</button>
+    </div>
+
+    <div class="toast" id="toast">✅ Funções ativadas com sucesso!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
