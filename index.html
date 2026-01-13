@@ -45,10 +45,37 @@
             <input type="checkbox" id="bypass">
         </div>
 
-        <button id="ativar">ATIVAR FUNÇÕES</button>
+        <div class="botoes-container">
+            <button id="ativar" class="btn-ativar">ATIVAR FUNÇÕES</button>
+            <button id="injetar" class="btn-injetar">🚀 INJETAR CONFIGURAÇÃO</button>
+        </div>
     </div>
 
     <div class="toast" id="toast">✅ Funções ativadas com sucesso!</div>
+    
+    <!-- Modal para mostrar configurações injetadas -->
+    <div class="modal" id="modal">
+        <div class="modal-conteudo">
+            <div class="modal-header">
+                <h3>🚀 CONFIGURAÇÃO INJETADA COM SUCESSO!</h3>
+                <span class="fechar-modal" id="fechar-modal">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="status-injecao">
+                    <div class="status-item sucesso">✓ FreeFireEliteOptimization v8.5-OmegaQuantum</div>
+                    <div class="status-item sucesso">✓ AimbotSystem: NeuralAdaptive-V5</div>
+                    <div class="status-item sucesso">✓ AIEnhancer: QuantumAnalyzed-UltraDeep</div>
+                    <div class="status-item sucesso">✓ TouchOptimizer: Phantom-V4</div>
+                    <div class="status-item sucesso">✓ ZeroInputLag Ativado</div>
+                    <div class="status-item sucesso">✓ RenderPipelineBoost: ZeroOverhead-V4</div>
+                </div>
+                <div class="progresso-container">
+                    <div class="progresso-bar" id="progresso-bar"></div>
+                </div>
+                <p class="status-texto" id="status-texto">Injetando no processo de segundo plano...</p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
