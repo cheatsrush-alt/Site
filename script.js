@@ -5,7 +5,7 @@ function login() {
     const loginError = document.getElementById('loginError');
     
     // Credenciais padrão
-    if (user === 'PE-DRIN-7GJ-3NB-9Lk' && pass === 'PE-DRIN-7GJ-3NB-9Lk') {
+    if (user === 'admin' && pass === '1234') {
         // Esconder login e mostrar painel
         document.getElementById('login').style.display = 'none';
         document.getElementById('panel').style.display = 'block';
