@@ -1,82 +1,132 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>PAINEL VIP - DARK MODE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auxílio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="painel">
-        <h2>⚙️ PAINEL IOS @PEDRINHOX</h2>
-
-        <div class="funcao">
-            <label for="headtrick">HEADTRICK</label>
-            <input type="checkbox" id="headtrick">
-        </div>
-        <div class="funcao">
-            <label for="norecoil">NO RECOIL</label>
-            <input type="checkbox" id="norecoil">
-        </div>
-        <div class="funcao">
-            <label for="mira">AJUSTE DE MIRA</label>
-            <input type="range" id="mira" min="30" max="120" value="60" class="slider">
-            <span class="valor-slider" id="valor-mira">60</span>
-        </div>
-        <div class="funcao">
-            <label for="desempenho">Modo ALTO DESEMPENHO</label>
-            <input type="checkbox" id="desempenho">
-        </div>
-        <div class="funcao">
-            <label for="antiban">ANTI BAN</label>
-            <input type="checkbox" id="antiban">
-        </div>
-        <div class="funcao">
-            <label for="aimbot">AIMBOT</label>
-            <input type="checkbox" id="aimbot">
-        </div>
-        <div class="funcao">
-            <label for="sensi">SENSI</label>
-            <input type="range" id="sensi" min="30" max="120" value="60" class="slider">
-            <span class="valor-slider" id="valor-sensi">60</span>
-        </div>
-        <div class="funcao">
-            <label for="bypass">BYPASS</label>
-            <input type="checkbox" id="bypass">
+    <div class="container">
+        <!-- Tela de Login -->
+        <div id="login" class="login-box">
+            <h2><i class="fas fa-user-shield"></i> Login do Painel</h2>
+            <div class="input-group">
+                <input type="text" id="user" placeholder="Digite seu usuário">
+            </div>
+            <div class="input-group">
+                <input type="password" id="pass" placeholder="Digite sua senha">
+            </div>
+            <button onclick="login()">
+                <i class="fas fa-sign-in-alt"></i> Entrar
+            </button>
+            <div id="loginError" class="error-message">
+                <i class="fas fa-exclamation-triangle"></i> Usuário ou senha incorretos!
+            </div>
+            <div class="login-info">
+                <p><i class="fas fa-info-circle"></i> adquira no discord</p>
+            </div>
         </div>
 
-        <div class="botoes-container">
-            <button id="ativar" class="btn-ativar">ATIVAR FUNÇÕES</button>
-            <button id="injetar" class="btn-injetar">🚀 INJETAR CONFIGURAÇÃO</button>
+        <!-- Painel Principal (inicialmente oculto) -->
+        <div id="panel" class="panel" style="display: none;">
+            <h2><i class="fas fa-gamepad"></i> Pedrinhox auxilio</h2>
+            
+            <div class="device-info">
+                <h3><i class="fas fa-mobile-alt"></i> Dispositivo Detectado</h3>
+                <div class="device-card" id="deviceInfo">
+                    <i class="fas fa-mobile-screen-button"></i>
+                    <p>Carregando informações...</p>
+                </div>
+            </div>
+            
+            <div class="features">
+                <h3><i class="fas fa-cogs"></i> Recursos Disponíveis</h3>
+                
+                <div class="feature-item">
+                    <label>
+                        <input type="checkbox" id="aimbot">
+                        <span class="checkbox-custom"></span>
+                        <span class="feature-text">
+                            <i class="fas fa-crosshairs"></i>
+                            Aimbot Automático
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="feature-item">
+                    <label>
+                        <input type="checkbox" id="norecoil">
+                        <span class="checkbox-custom"></span>
+                        <span class="feature-text">
+                            <i class="fas fa-bullseye"></i>
+                            Sem Recuo (No Recoil)
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="feature-item">
+                    <label>
+                        <input type="checkbox" id="headshot">
+                        <span class="checkbox-custom"></span>
+                        <span class="feature-text">
+                            <i class="fas fa-skull"></i>
+                            HS Automático
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="feature-item">
+                    <label>
+                        <input type="checkbox" id="speedhack">
+                        <span class="checkbox-custom"></span>
+                        <span class="feature-text">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Speed Hack
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="feature-item">
+                    <label>
+                        <input type="checkbox" id="wallhack">
+                        <span class="checkbox-custom"></span>
+                        <span class="feature-text">
+                            <i class="fas fa-eye"></i>
+                            Wall Hack
+                        </span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="inject-section">
+                <h3><i class="fas fa-syringe"></i> Injeção</h3>
+                <button onclick="inject()" class="inject-btn">
+                    <i class="fas fa-play-circle"></i> Injectar Mods
+                </button>
+                <div id="msg" class="success-message">
+                    <i class="fas fa-check-circle"></i> ✅ Injectado com sucesso!
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Bypass: <span class="status active">Ativo</span></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Performance: <span class="status good">Ótima</span></span>
+                </div>
+            </div>
+            
+            <button onclick="logout()" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </button>
         </div>
     </div>
-
-    <div class="toast" id="toast">✅ Funções ativadas com sucesso!</div>
     
-    <!-- Modal para mostrar configurações injetadas -->
-    <div class="modal" id="modal">
-        <div class="modal-conteudo">
-            <div class="modal-header">
-                <h3>🚀 CONFIGURAÇÃO INJETADA COM SUCESSO!</h3>
-                <span class="fechar-modal" id="fechar-modal">×</span>
-            </div>
-            <div class="modal-body">
-                <div class="status-injecao">
-                    <div class="status-item sucesso">✓ FreeFireEliteOptimization v8.5-OmegaQuantum</div>
-                    <div class="status-item sucesso">✓ AimbotSystem: NeuralAdaptive-V5</div>
-                    <div class="status-item sucesso">✓ AIEnhancer: QuantumAnalyzed-UltraDeep</div>
-                    <div class="status-item sucesso">✓ TouchOptimizer: Phantom-V4</div>
-                    <div class="status-item sucesso">✓ ZeroInputLag Ativado</div>
-                    <div class="status-item sucesso">✓ RenderPipelineBoost: ZeroOverhead-V4</div>
-                </div>
-                <div class="progresso-container">
-                    <div class="progresso-bar" id="progresso-bar"></div>
-                </div>
-                <p class="status-texto" id="status-texto">Injetando no processo de segundo plano...</p>
-            </div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
